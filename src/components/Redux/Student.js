@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useRef} from 'react'
 import {AiOutlineClose} from 'react-icons/ai'
-import { deleteStudent,markChecked,editStudent } from './redux/list.action'
+import { deleteStudent,markChecked,editStudent, reCheckAll } from './redux/list.action'
 import {useDispatch} from "react-redux"
 
 const Student = (props) => {
@@ -31,6 +31,7 @@ const Student = (props) => {
             <AiOutlineClose className="btnRemove"
             onClick={()=>{
                 dispatch(deleteStudent(student.id))
+                dispatch(reCheckAll())
                 //goi ham dispatch
             }}
             />

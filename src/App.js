@@ -7,7 +7,7 @@ import {
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import Navbar from './components/Layout/Navbar';
 import Redux from './components/Redux/Redux';
-import { Footer } from './components/Layout/Footer';
+
 // import StudentList  from "./components/studentApp/StudentList";
 //import StudentList  from "./components/studentApp2/StudentList";
 import Calculator from './components/Calculator/Calculator';

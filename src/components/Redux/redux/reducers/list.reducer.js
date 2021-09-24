@@ -48,21 +48,26 @@ const listReducer = (state = initState, action) => {
             })
             return {...state,list:newList}
         }
-        case 'SET_STATUS':{
-            if (state.status === 'ALL'){
-                return state.list
-            }
-            else if (state.status === 'Filter no checked'){
-                return state.list.filter(student =>(student.checked=== false))
-            }
-            else if (state.status === 'Filter checked'){
-                return state.list.filter(student =>(student.checked=== true))
-            }
-            else{
-                return state.list
-            }
+        case 'CHECKALL':{
+            const list=state.list.map(st=>({...st,checked:!state.checkAll}))
+            return {...state,list,checkAll:!state.checkAll}
         }
-        
+        case 'REMOVECHECKED':{
+            const list=state.list.filter(st=>(st.checked===false))
+            return {...state,list}
+        }
+        case 'RECHECKALL':{
+            let newCheckAll
+            if(state.list.length==0){
+                newCheckAll=false
+            }else{
+                newCheckAll=state.list.every(st=>st.checked===true) 
+            }
+            return {...state,checkAll:newCheckAll}
+        }
+        case 'SETSTATUS':{
+            return {...state,status:action.payload}
+        }       
         default:
             return state
     }

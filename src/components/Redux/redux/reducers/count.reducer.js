@@ -1,6 +1,6 @@
-const initiaState = 0
+const initiaState = 1
 const countReducer=(state=initiaState, action)=>{
-    switch(action){
+    switch(action.type){
         case 'PLUS':
             return state+1
         case 'MINUS':
